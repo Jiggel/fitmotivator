@@ -1,0 +1,248 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Trying gradient here-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_bgpic"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical"
+        >
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar" />
+
+        <!--Trying gradient here-->
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_bgpic"
+        android:paddingTop="40dp"
+
+        >
+
+        <TextView
+            android:id="@+id/txtGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goal: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="16dp"
+            android:textColor="@color/primary_text"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+
+             />
+
+        <EditText
+            android:id="@+id/addGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:maxLength="6"
+            android:hint="0"
+            android:layout_alignParentRight="true"
+            android:textColorHint="@color/button_material_dark"
+            android:textColor="@color/primary_text"
+            android:layout_toRightOf="@id/txtGoal"
+            android:layout_alignTop="@+id/txtGoal"
+            android:layout_marginLeft="20dp"
+
+
+            />
+
+        <TextView
+
+            android:id="@+id/txtAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txtGoal"
+            android:paddingLeft="16dp"
+            android:textColor="@color/primary_text"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+
+            />
+
+        <EditText
+            android:id="@+id/addAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:maxLength="3"
+            android:hint="0"
+            android:textColorHint="@color/button_material_dark"
+            android:textColor="@color/primary_text"
+            android:layout_toRightOf="@id/txtAge"
+            android:layout_below="@id/addGoal"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/txtAge"
+            android:layout_marginLeft="29dp"
+            />
+
+        <TextView
+
+            android:id="@+id/txtWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="16dp"
+            android:layout_below="@id/addAge"
+            android:textColor="@color/primary_text"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+            />
+        <TextView
+
+            android:id="@+id/txtWeightMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kg/lb"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentRight="true"
+            android:paddingRight="16dp"
+            android:layout_below="@+id/txtAge"
+            android:textColor="@color/secondary_text"
+            android:layout_margin="16dp"
+
+
+            />
+
+        <EditText
+            android:id="@+id/addWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:maxLength="6"
+            android:hint="0"
+            android:textColorHint="@color/button_material_dark"
+            android:textColor="@color/primary_text"
+            android:layout_toRightOf="@id/txtWeight"
+            android:layout_below="@+id/addAge"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/txtWeight"
+            />
+
+
+        <TextView
+
+            android:id="@+id/txtHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="16dp"
+            android:layout_below="@+id/txtWeight"
+            android:textColor="@color/primary_text"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+
+            />
+        <TextView
+
+            android:id="@+id/txtHeightMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="m/f"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentRight="true"
+            android:paddingRight="16dp"
+            android:layout_below="@+id/txtWeight"
+            android:textColor="@color/secondary_text"
+            android:layout_margin="16dp"
+
+
+            />
+
+        <EditText
+            android:id="@+id/addHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="6"
+            android:hint="0.00"
+            android:textColorHint="@color/button_material_dark"
+            android:textColor="@color/primary_text"
+            android:layout_toRightOf="@id/txtHeight"
+            android:layout_below="@id/addWeight"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/txtHeight"
+            />
+
+        <TextView
+            android:id="@+id/txtBmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="16dp"
+            android:layout_below="@id/txtHeight"
+            android:textColor="@color/primary_text"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/addBmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number|numberDecimal"
+            android:maxLength="6"
+            android:hint="0"
+            android:textColorHint="@color/button_material_dark"
+            android:textColor="@color/primary_text"
+            android:layout_toRightOf="@id/txtBmi"
+            android:layout_below="@id/addHeight"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/txtBmi"
+            android:layout_marginLeft="20dp"
+
+            />
+
+        <Button
+            android:id="@+id/btnCalSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@color/highlighted_text_material_dark"
+            android:text="Save"
+            android:textColor="@color/primary_text"
+            android:layout_below="@+id/addBmi"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/fragment_navigation_drawer"
+        android:name="com.fitmotivator.eagleeye.fitmotivator.NavigationDrawerFragment"
+        android:layout_width="@dimen/nav_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:layout="@layout/fragment_navigation_drawer"
+        tools:layout="@layout/fragment_navigation_drawer" />
+    <!--android:layout_marginTop="@dimen/drawer_margin_top"-->
+
+</android.support.v4.widget.DrawerLayout>
+
+
+
+
+
+
