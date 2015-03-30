@@ -5,137 +5,188 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:paddingLeft="0dp"
-    android:fitsSystemWindows="false"
-    android:background="@color/appBackground"
-    >
-
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/app_bar"
-        />
-
-
-    <RelativeLayout
-        android:orientation="vertical"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingLeft="16dp"
-        android:paddingTop="25dp"
-        android:fitsSystemWindows="false"
         android:background="@color/appBackground"
-
-        >
-
-    <CheckBox
-        android:layout_margin="5dp"
-        android:id="@+id/chk_Sun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chk_sunday"
-        android:checked="true"
-        android:textColor="@color/primary_text"
-        android:button="@drawable/custom_checkbox_design"
-        android:paddingLeft="16dp"
-        />
-    <CheckBox
-        android:layout_margin="5dp"
-        android:id="@+id/chk_Mon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chk_monday"
-        android:textColor="@color/primary_text"
-        android:button="@drawable/custom_checkbox_design"
-        android:paddingLeft="16dp"
-        android:layout_below="@+id/chk_Sun"
-
-        />
-    <CheckBox
-        android:layout_margin="5dp"
-        android:id="@+id/chk_Tue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chk_tuesday"
-        android:textColor="@color/primary_text"
-        android:button="@drawable/custom_checkbox_design"
-        android:paddingLeft="16dp"
-        android:layout_below="@+id/chk_Mon"
-        />
-    <CheckBox
-        android:layout_margin="5dp"
-        android:id="@+id/chk_Wed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chk_wednesday"
-        android:textColor="@color/primary_text"
-        android:button="@drawable/custom_checkbox_design"
-        android:paddingLeft="16dp"
-        android:layout_below="@+id/chk_Tue"
-        />
-    <CheckBox
-        android:layout_margin="5dp"
-        android:id="@+id/chk_Thur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chk_thursday"
-        android:textColor="@color/primary_text"
-        android:button="@drawable/custom_checkbox_design"
-        android:paddingLeft="16dp"
-        android:layout_below="@+id/chk_Wed"
-        />
-    <CheckBox
-        android:layout_margin="5dp"
-        android:id="@+id/chk_Fri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chk_friday"
-        android:textColor="@color/primary_text"
-        android:button="@drawable/custom_checkbox_design"
-        android:paddingLeft="16dp"
-        android:layout_below="@+id/chk_Thur"
-        />
-    <CheckBox
-        android:layout_margin="5dp"
-        android:id="@+id/chk_Sat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chk_saturday"
-        android:checked="true"
-        android:textColor="@color/primary_text"
-        android:button="@drawable/custom_checkbox_design"
-        android:paddingLeft="16dp"
-        android:layout_below="@+id/chk_Fri"
-
-        />
+        android:fitsSystemWindows="false"
+        android:orientation="vertical"
+        android:paddingLeft="0dp">
 
 
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar" />
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:background="@color/appBackground"
+            android:fitsSystemWindows="false"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="25dp"
+
+            >
+
+
+            <CheckBox
+                android:id="@+id/chk_Sun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:checked="true"
+                android:paddingLeft="16dp"
+                android:text="@string/chk_sunday"
+                android:textColor="@color/primary_text" />
+
+            <CheckBox
+                android:id="@+id/chk_Mon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chk_Sun"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:paddingLeft="16dp"
+                android:text="@string/chk_monday"
+                android:textColor="@color/primary_text"
+
+                />
+
+            <CheckBox
+                android:id="@+id/chk_Tue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chk_Mon"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:paddingLeft="16dp"
+                android:text="@string/chk_tuesday"
+                android:textColor="@color/primary_text" />
+
+            <CheckBox
+                android:id="@+id/chk_Wed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chk_Tue"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:paddingLeft="16dp"
+                android:text="@string/chk_wednesday"
+                android:textColor="@color/primary_text" />
+
+            <CheckBox
+                android:id="@+id/chk_Thur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chk_Wed"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:paddingLeft="16dp"
+                android:text="@string/chk_thursday"
+                android:textColor="@color/primary_text" />
+
+            <CheckBox
+                android:id="@+id/chk_Fri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chk_Thur"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:paddingLeft="16dp"
+                android:text="@string/chk_friday"
+                android:textColor="@color/primary_text" />
+
+            <CheckBox
+                android:id="@+id/chk_Sat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chk_Fri"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:checked="true"
+                android:paddingLeft="16dp"
+                android:text="@string/chk_saturday"
+                android:textColor="@color/primary_text"
+
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="25dp"
+            >
+
+            <TextView
+                android:id="@+id/txt_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick sport"
+                android:textColor="@color/primary_text"
+                android:layout_centerHorizontal="true"/>
+
+            <CheckBox
+                android:id="@+id/chk_Running"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:checked="true"
+                android:layout_below="@+id/txt_Header"
+                android:paddingLeft="16dp"
+                android:text="Running"
+                android:textColor="@color/primary_text" />
+
+            <CheckBox
+                android:id="@+id/chk_Biking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:paddingLeft="16dp"
+                android:text="Biking"
+                android:layout_below="@+id/chk_Running"
+                android:textColor="@color/primary_text"
+
+                />
+
+            <CheckBox
+                android:id="@+id/chk_Walking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@drawable/custom_checkbox_design"
+                android:paddingLeft="16dp"
+                android:text="Walking"
+                android:layout_below="@+id/chk_Biking"
+                android:textColor="@color/primary_text" />
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btnSave"
+                android:layout_centerInParent="true"
                 android:background="@color/primaryColor"
                 android:gravity="center"
-                android:layout_below="@id/chk_Sat"
-                android:layout_centerInParent="true"
-                />
+                android:layout_below="@+id/chk_Walking"
+                android:text="@string/btnSave" />
 
+        </RelativeLayout>
 
-     </RelativeLayout>
-
-</LinearLayout>
+    </LinearLayout>
 
     <fragment
 
         android:id="@+id/fragment_navigation_drawer"
+        android:name="com.fitmotivator.eagleeye.fitmotivator.NavigationDrawerFragment"
         android:layout_width="@dimen/nav_drawer_width"
         android:layout_height="match_parent"
-        app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"
-        android:name="com.fitmotivator.eagleeye.fitmotivator.NavigationDrawerFragment"
+        app:layout="@layout/fragment_navigation_drawer"
         tools:layout="@layout/fragment_navigation_drawer" />
 </android.support.v4.widget.DrawerLayout>

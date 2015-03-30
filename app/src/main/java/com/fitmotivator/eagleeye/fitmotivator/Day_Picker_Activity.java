@@ -1,10 +1,16 @@
 package com.fitmotivator.eagleeye.fitmotivator;
 
+import android.annotation.TargetApi;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,9 +42,10 @@ public class Day_Picker_Activity extends ActionBarActivity {
 
     String weekDay;
     int counter = 0;
+    int mId;
 
 
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,103 +90,222 @@ public class Day_Picker_Activity extends ActionBarActivity {
         String day7 = sharedPreferences.getString("Day7", DEFAULT_DAY);
 
 
-        if (day1.equals(DEFAULT_DAY))
-        {
+        if (day1.equals(DEFAULT_DAY)) {
             chkSun.setChecked(false);
-        }
-        else
-        {
+        } else {
             chkSun.setChecked(true);
-            if (day1.equals(weekDay) && n == 5)
-            {
+            if (day1.equals(weekDay) && n == 5) {
                 Toast.makeText(this, "Go for a run, it's perfect weather today " + day1 + " and temp is " + n, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+                NotificationCompat.Builder noti = new NotificationCompat.Builder(this)
+                        .setContentTitle("Content Title")
+                        .setSmallIcon(R.drawable.ic_sport)
+                        .setContentIntent(pIntent);
+
+                NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+                String[] events = new String[6];
+                //Sets a title for the inbox in expanded layout
+                inboxStyle.setBigContentTitle("Testing what this is:");
+
+                //Moves events into the expanded layout
+                for (int i = 0; i < events.length; i++)
+                {
+                    inboxStyle.addLine(events[i]);
+                }
+
+                //Moves the expanded layout object into the notification object
+                noti.setStyle(inboxStyle);
+
+                // Creates an explicit intent for an Activity in your app
+                Intent resultIntent = new Intent(this, ShowWeather.class);
+
+                // The stack builder object will contain an artificial back stack for the
+                // started Activity.
+                // This ensures that navigating backward from the Activity leads out of
+                // your application to the Home screen.
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+
+                // Adds the back stack for the Intent (but not the Intent itself)
+                stackBuilder.addParentStack(ShowWeather.class);
+                // Adds the Intent that starts the Activity to the top of the stack
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+                noti.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                // mId allows you to update the notification later on.
+                mNotificationManager.notify(mId, noti.build());
+
+
             }
 
         }
 
-        if (day2.equals(DEFAULT_DAY))
-        {
+        if (day2.equals(DEFAULT_DAY)) {
             chkMon.setChecked(false);
 
-        }
-        else
-        {
+        } else {
             chkMon.setChecked(true);
-            if (day2.equals(weekDay) && n == 5)
-            {
+            if (day2.equals(weekDay) && n == 5) {
                 Toast.makeText(this, "Go for a run, it's perfect weather today " + day2 + " and temp is " + n, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+                NotificationCompat.Builder noti = new NotificationCompat.Builder(this)
+                        .setTicker("Lovely weather today")
+                        .setContentTitle("Content Title")
+                        .setContentTitle("It's perfect weather today @" + n + " temp")
+                        .setContentText("A perfect day to go for running. It's beautiful outside")
+                        .setSmallIcon(R.drawable.ic_sport)
+                        .setContentIntent(pIntent);
+
+                NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+                String[] events = new String[6];
+                //Sets a title for the inbox in expanded layout
+                inboxStyle.setBigContentTitle("Testing what this is:");
+
+                //Moves events into the expanded layout
+                for (int i = 0; i < events.length; i++)
+                {
+                    inboxStyle.addLine(events[i]);
+                }
+
+                //Moves the expanded layout object into the notification object
+                noti.setStyle(inboxStyle);
+
+                // Creates an explicit intent for an Activity in your app
+                Intent resultIntent = new Intent(this, ShowWeather.class);
+
+                // The stack builder object will contain an artificial back stack for the
+                // started Activity.
+                // This ensures that navigating backward from the Activity leads out of
+                // your application to the Home screen.
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+
+                // Adds the back stack for the Intent (but not the Intent itself)
+                stackBuilder.addParentStack(ShowWeather.class);
+                // Adds the Intent that starts the Activity to the top of the stack
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+
+                noti.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                // mId allows you to update the notification later on.
+                mNotificationManager.notify(mId, noti.build());
+
             }
 
         }
 
-        if (day3.equals(DEFAULT_DAY))
-        {
+        if (day3.equals(DEFAULT_DAY)) {
             chkTue.setChecked(false);
 
-        }
-        else
-        {
+        } else {
             chkTue.setChecked(true);
-            if (day3.equals(weekDay) && n == 5)
-            {
+            if (day3.equals(weekDay) && n == 5) {
                 Toast.makeText(this, "Go for a run, it's perfect weather today " + day3 + " and temp is " + n, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+                NotificationCompat.Builder noti = new NotificationCompat.Builder(this)
+                        .setTicker("Lovely weather today")
+                        .setContentTitle("Content Title")
+                        .setContentTitle("It's perfect weather today @" + n + " temp")
+                        .setContentText("A perfect day to go for running. It's beautiful outside")
+                        .setSmallIcon(R.drawable.ic_sport)
+                        .setContentIntent(pIntent);
+
+                NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+                String[] events = new String[6];
+                //Sets a title for the inbox in expanded layout
+                inboxStyle.setBigContentTitle("Testing what this is:");
+
+                //Moves events into the expanded layout
+                for (int i = 0; i < events.length; i++)
+                {
+                    inboxStyle.addLine(events[i]);
+                }
+
+                //Moves the expanded layout object into the notification object
+                noti.setStyle(inboxStyle);
+
+                // Creates an explicit intent for an Activity in your app
+                Intent resultIntent = new Intent(this, ShowWeather.class);
+
+                // The stack builder object will contain an artificial back stack for the
+                // started Activity.
+                // This ensures that navigating backward from the Activity leads out of
+                // your application to the Home screen.
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+
+                // Adds the back stack for the Intent (but not the Intent itself)
+                stackBuilder.addParentStack(ShowWeather.class);
+                // Adds the Intent that starts the Activity to the top of the stack
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+
+                noti.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                // mId allows you to update the notification later on.
+                mNotificationManager.notify(mId, noti.build());
             }
         }
 
-        if (day4.equals(DEFAULT_DAY))
-        {
+        if (day4.equals(DEFAULT_DAY)) {
             chkWed.setChecked(false);
-        }
-        else
-        {
+        } else {
             chkWed.setChecked(true);
-            if (day4.equals(weekDay) && n == 5)
-            {
+            if (day4.equals(weekDay) && n == 5) {
                 Toast.makeText(this, "Go for a run, it's perfect weather today " + day4 + " and temp is " + n, Toast.LENGTH_LONG).show();
             }
         }
 
-        if (day5.equals(DEFAULT_DAY))
-        {
+        if (day5.equals(DEFAULT_DAY)) {
             chkThur.setChecked(false);
-        }
-        else
-        {
+        } else {
             chkThur.setChecked(true);
-            if (day5.equals(weekDay) && n == 5)
-            {
+            if (day5.equals(weekDay) && n == 5) {
                 Toast.makeText(this, "Go for a run, it's perfect weather today " + day5 + " and temp is " + n, Toast.LENGTH_LONG).show();
             }
         }
 
-        if (day6.equals(DEFAULT_DAY))
-        {
+        if (day6.equals(DEFAULT_DAY)) {
             chkFri.setChecked(false);
-        }
-        else
-        {
+        } else {
             chkFri.setChecked(true);
-            if (day6.equals(weekDay) && n == 5)
-            {
+            if (day6.equals(weekDay) && n == 5) {
                 Toast.makeText(this, "Go for a run, it's perfect weather today " + day6 + " and temp is " + n, Toast.LENGTH_LONG).show();
             }
         }
 
 
-        if (day7.equals(DEFAULT_DAY))
-        {
+        if (day7.equals(DEFAULT_DAY)) {
             chkSat.setChecked(false);
-        }
-        else
-        {
+        } else {
             chkSat.setChecked(true);
-            if (day7.equals(weekDay) && n == 5)
-            {
+            if (day7.equals(weekDay) && n == 5) {
                 Toast.makeText(this, "Go for a run, it's perfect weather today " + day7 + " and temp is " + n, Toast.LENGTH_LONG).show();
             }
         }
-
-
 
 
         btnSave = (Button) findViewById(R.id.btnSave);
@@ -188,90 +314,69 @@ public class Day_Picker_Activity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences sharedPreferences = getSharedPreferences("MySchedule", Context.MODE_PRIVATE );
+                SharedPreferences sharedPreferences = getSharedPreferences("MySchedule", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                if(chkSun.isChecked())
-                {
+                if (chkSun.isChecked()) {
                     sun = chkSun.getText().toString();
                     editor.putString("Day1", sun);
                     editor.commit();
-                }
-                else
-                {
+                } else {
                     editor.remove("Day1");
                     editor.commit();
                 }
 
-                if(chkMon.isChecked())
-                {
+                if (chkMon.isChecked()) {
                     mon = chkMon.getText().toString();
                     editor.putString("Day2", mon);
                     editor.commit();
-                }
-                else
-                {
+                } else {
                     editor.remove("Day2");
                     editor.commit();
                 }
 
-                if(chkTue.isChecked())
-                {
+                if (chkTue.isChecked()) {
                     tue = chkTue.getText().toString();
                     editor.putString("Day3", tue);
                     editor.commit();
-                }
-                else
-                {
+                } else {
                     editor.remove("Day3");
                     editor.commit();
                 }
 
-                if(chkWed.isChecked())
-                {
+                if (chkWed.isChecked()) {
                     wed = chkWed.getText().toString();
                     editor.putString("Day4", wed);
                     editor.commit();
-                }
-                else
-                {
+                } else {
                     editor.remove("Day4");
                     editor.commit();
                 }
 
-                if(chkThur.isChecked())
-                {
+                if (chkThur.isChecked()) {
                     thur = chkThur.getText().toString();
                     editor.putString("Day5", thur);
                     editor.commit();
-                }
-                else
-                {
+                } else {
                     editor.remove("Day5");
                     editor.commit();
                 }
 
-                if(chkFri.isChecked())
-                {
+                if (chkFri.isChecked()) {
                     fri = chkFri.getText().toString();
                     editor.putString("Day6", fri);
                     editor.commit();
-                }
-                else
-                {
+                } else {
                     editor.remove("Day6");
                     editor.commit();
                 }
 
-                if(chkSat.isChecked())
-                {
+                if (chkSat.isChecked()) {
                     sat = chkSat.getText().toString();
                     editor.putString("Day7", sat);
                     editor.commit();
 
-                }
-                else
-                {
+                } else {
                     editor.remove("Day7");
                     editor.commit();
                 }
@@ -300,7 +405,7 @@ public class Day_Picker_Activity extends ActionBarActivity {
         int id = item.getItemId();
 
 
-        if (id == android.R.id.home){
+        if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         }
 
@@ -327,7 +432,7 @@ public class Day_Picker_Activity extends ActionBarActivity {
 
     //Go to main on back button press
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
 
         Intent intent = new Intent(Day_Picker_Activity.this, ShowWeather.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
